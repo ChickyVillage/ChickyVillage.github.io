@@ -1,6 +1,8 @@
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
 /* General Styling */
 body {
-    font-family: 'Cute Font', cursive;
+    font-family: 'Nanum Gothic', sans-serif;
     background-color: #fffaf0; /* Very light pastel orange (Floral White) */
     color: #5d4037; /* Soft brown for text */
     margin: 0;
@@ -89,6 +91,150 @@ section h1, section h2 {
     border-radius: 15px;
     margin-top: 20px;
 }
+
+/* --- Member ID Card Styles --- */
+#members {
+    background: none;
+    box-shadow: none;
+    max-width: 100%;
+    padding: 50px 0;
+}
+
+.card-slider-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-slider {
+    width: 350px;
+    overflow: hidden;
+}
+
+.card-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.id-card {
+    flex: 0 0 350px; /* Do not grow, do not shrink, base width 350px */
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.1);
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease;
+    font-size: 16px;
+}
+
+.id-card:first-child {
+    margin-left: 0;
+}
+
+.id-card-header {
+    background-color: #FFDAB9; /* PeachPuff */
+    padding: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #5D4037;
+    font-size: 18px;
+}
+
+.header-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.id-card-body {
+    display: flex;
+    padding: 20px;
+    align-items: flex-start;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 120px;
+    border: 4px solid #FFDAB9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 20px;
+    flex-shrink: 0;
+    background: #f0f0f0;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    text-align: left;
+}
+
+.profile-info .name {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    font-size: 0.95em;
+    margin: 5px 0;
+    color: #555;
+    line-height: 1.4;
+}
+
+.profile-info p strong {
+    color: #D2691E; /* Chocolate color */
+    display: inline-block;
+    width: 70px;
+}
+
+.slider-btn {
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    transition: background-color 0.3s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.slider-btn:hover {
+    background: white;
+}
+
+.slider-btn img {
+    width: 25px;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
 
 /* Footer */
 footer {

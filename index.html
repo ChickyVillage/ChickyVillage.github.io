@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>꼬꼬 마을 이야기</title>
+    <title>꼬꼬 마 을</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -36,7 +35,104 @@
 
         <section id="members">
             <h2>마을원 소개</h2>
-            <p>개성 넘치는 꼬꼬 마을의 주민들을 소개합니다! (여기에 마을원 소개 내용이 들어갑니다.)</p>
+            <div class="card-slider-container">
+                <button class="slider-btn prev-btn"><img src="image/icon/left.png" alt="이전"></button>
+                <div class="card-slider">
+                    <div class="card-track">
+                        <!-- 댱케 -->
+                        <div class="id-card">
+                            <div class="id-card-header">
+                                <img src="image/chicky_icon.png" alt="로고" class="header-logo">
+                                <span>꼬꼬마을 주민증</span>
+                            </div>
+                            <div class="id-card-body">
+                                <div class="profile-pic">
+                                    <img src="image/chicky_icon.png" alt="프로필 사진">
+                                </div>
+                                <div class="profile-info">
+                                    <p class="name">댱케 <span class="mbti">(ISFP)</span></p>
+                                    <p><strong>나이:</strong> 2n</p>
+                                    <p><strong>주요업무:</strong> 총괄, 감시, 제련, 특수광물, 광질, 야생</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- maple181818 -->
+                        <div class="id-card">
+                            <div class="id-card-header">
+                                <img src="image/chicky_icon.png" alt="로고" class="header-logo">
+                                <span>꼬꼬마을 주민증</span>
+                            </div>
+                            <div class="id-card-body">
+                                <div class="profile-pic">
+                                    <img src="image/chicky_icon.png" alt="프로필 사진">
+                                </div>
+                                <div class="profile-info">
+                                    <p class="name">maple181818 <span class="mbti">(ISFP)</span></p>
+                                    <p><strong>나이:</strong> 3n</p>
+                                    <p><strong>괭/곡/낚:</strong> 0/8/0</p>
+                                    <p><strong>주요업무:</strong> 특수광물, 광질, 야생</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 유니 -->
+                        <div class="id-card">
+                            <div class="id-card-header">
+                                <img src="image/chicky_icon.png" alt="로고" class="header-logo">
+                                <span>꼬꼬마을 주민증</span>
+                            </div>
+                            <div class="id-card-body">
+                                <div class="profile-pic">
+                                    <img src="image/chicky_icon.png" alt="프로필 사진">
+                                </div>
+                                <div class="profile-info">
+                                    <p class="name">유니 <span class="mbti">(ESFP)</span></p>
+                                    <p><strong>나이:</strong> 3n</p>
+                                    <p><strong>괭/곡/낚:</strong> 7/0/0</p>
+                                    <p><strong>주요업무:</strong> 특수씨앗, 광질, 야생, 농사, 건축</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 비비 -->
+                        <div class="id-card">
+                            <div class="id-card-header">
+                                <img src="image/chicky_icon.png" alt="로고" class="header-logo">
+                                <span>꼬꼬마을 주민증</span>
+                            </div>
+                            <div class="id-card-body">
+                                <div class="profile-pic">
+                                    <img src="image/chicky_icon.png" alt="프로필 사진">
+                                </div>
+                                <div class="profile-info">
+                                    <p class="name">비비 <span class="mbti">(INTJ)</span></p>
+                                    <p><strong>나이:</strong> 2n</p>
+                                    <p><strong>괭/곡/낚:</strong> 3/9/6</p>
+                                    <p><strong>주요업무:</strong> 건축, 도감팔이, 특수광물</p>
+                                    <p><strong>특이사항:</strong> 롤체하러감</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Li ㅋㅋ 1014 -->
+                        <div class="id-card">
+                            <div class="id-card-header">
+                                <img src="image/chicky_icon.png" alt="로고" class="header-logo">
+                                <span>꼬꼬마을 주민증</span>
+                            </div>
+                            <div class="id-card-body">
+                                <div class="profile-pic">
+                                    <img src="image/chicky_icon.png" alt="프로필 사진">
+                                </div>
+                                <div class="profile-info">
+                                    <p class="name">Li ㅋㅋ 1014 <span class="mbti">(INFP)</span></p>
+                                    <p><strong>나이:</strong> 2n</p>
+                                    <p><strong>주요업무:</strong> 요리, 농사, 특수씨앗</p>
+                                    <p><strong>특이사항:</strong> 라자냐 85%이상 고점 필요</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-btn next-btn"><img src="image/icon/right.png" alt="다음"></button>
+            </div>
         </section>
 
         <section id="announcements">
@@ -64,6 +160,41 @@
                 });
             });
         });
+
+        const track = document.querySelector('.card-track');
+        const cards = Array.from(track.children);
+        const nextButton = document.querySelector('.next-btn');
+        const prevButton = document.querySelector('.prev-btn');
+        const cardWidth = cards.length > 0 ? cards[0].getBoundingClientRect().width : 0;
+
+        let currentIndex = 0;
+
+        const updateSliderPosition = () => {
+            if (cardWidth > 0) {
+                track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            }
+        }
+
+        // When I click left, move cards to the left
+        prevButton.addEventListener('click', e => {
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = cards.length - 1;
+            }
+            updateSliderPosition();
+        });
+
+        // When I click right, move cards to the right
+        nextButton.addEventListener('click', e => {
+            currentIndex++;
+            if (currentIndex >= cards.length) {
+                currentIndex = 0;
+            }
+            updateSliderPosition();
+        });
+
+        // Initialize slider
+        updateSliderPosition();
     </script>
 </body>
 </html>
