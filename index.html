@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>꼬꼬 마을 이야기</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home" class="logo">
+                <img src="image/chicky_icon.png" alt="꼬꼬 마을 로고">
+            </a>
+            <ul>
+                <li><a href="#about">마을 소개</a></li>
+                <li><a href="#members">마을원 소개</a></li>
+                <li><a href="#announcements">마을 공지</a></li>
+                <li><a href="#recruitment">마을 모집</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="home-section">
+            <img src="image/chicky.png" alt="꼬꼬 마을" class="main-logo">
+            <h1>꼬꼬 마을 이야기</h1>
+            <p>병아리들이 모여 사는 작은 마을, 꼬꼬 마을에 오신 것을 환영합니다!</p>
+        </section>
+
+        <section id="about">
+            <h2>마을 소개</h2>
+            <p>꼬꼬 마을은 작고 귀여운 병아리들이 함께 어울려 살아가는 평화로운 마을입니다. 우리는 함께 배우고, 함께 성장하며, 즐거운 추억을 만들어갑니다.</p>
+        </section>
+
+        <section id="members">
+            <h2>마을원 소개</h2>
+            <p>개성 넘치는 꼬꼬 마을의 주민들을 소개합니다! (여기에 마을원 소개 내용이 들어갑니다.)</p>
+        </section>
+
+        <section id="announcements">
+            <h2>마을 공지</h2>
+            <p>꼬꼬 마을의 새로운 소식을 확인하세요! (여기에 공지사항 내용이 들어갑니다.)</p>
+        </section>
+
+        <section id="recruitment">
+            <h2>마을 모집</h2>
+            <p>꼬꼬 마을과 함께할 새로운 가족을 찾습니다! 우리와 함께 즐거운 시간을 보내고 싶다면 언제든지 환영입니다.</p>
+            <img src="image/recruit_1.png" alt="마을 모집 공고" class="recruitment-image">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 꼬꼬 마을. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
