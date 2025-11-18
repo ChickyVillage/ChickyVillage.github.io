@@ -97,6 +97,82 @@ section h2 {
     margin-top: 20px;
 }
 
+/* 시설 소개 */
+/* 그리드 3×2 */
+.village-place-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* 카드 기본 */
+.village-place-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+/* 제목 */
+.village-place-card h3 {
+    font-size: 24px;
+    margin: 15px 0 10px;
+    color: #e67e22;
+}
+
+/* 이미지 캐러셀 */
+.place-img-carousel {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f0f0f0;
+}
+
+.place-img-wrapper img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.place-imgs {
+    display: flex;
+    position: relative;
+}
+
+.place-img-wrapper {
+    min-width: 100%;
+    display: none;
+}
+
+/* 네비 버튼 */
+.place-nav {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.place-prev,
+.place-next {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.place-page {
+    font-size: 14px;
+    color: #fff;
+    background: rgba(0,0,0,0.4);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
 /* --- Member ID Card Styles --- */
 #members {
     background: none;
