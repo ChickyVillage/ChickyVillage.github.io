@@ -70,6 +70,12 @@ section {
     text-align: center;
 }
 
+.section-divider {
+    border: none;
+    border-top: 2px dashed #ccc;
+    margin: 24px 0;
+}
+
 /* 홈 섹션 h1과 p 간격 조정 */
 .home-section {
     margin: 10px auto;  /* section 기본 margin 덮어쓰기 */
@@ -108,6 +114,42 @@ section h2 {
     max-width: 100%;
     border-radius: 15px;
     margin-top: 20px;
+}
+
+/* 마을 단계 소개 */
+.village-level-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.level-item {
+    background-color: #fdf6e9;
+    border: 2px solid #e0d7c1;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.level-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
+}
+
+.level-name {
+    display: block;
+    font-weight: bold;
+    color: #5d4037;
+    margin-bottom: 6px;
+}
+
+.level-value {
+    display: block;
+    font-size: 18px;
+    color: #a1887f;
 }
 
 /* 시설 소개 */
@@ -471,6 +513,36 @@ footer {
     font-size: 18px;
 }
 
+.footer-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-contacts {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-contacts span {
+    font-weight: bold;
+    color: #5d4037;
+}
+
+.footer-icon {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.footer-icon:hover {
+    transform: scale(1.1);
+}
+
+
 /* 마우스 호버 3D 효과용 transition */
 .resident-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -621,7 +693,27 @@ footer {
     }
 
     footer {
-        font-size: 14px;
         padding: 15px;
+        font-size: 14px;
+    }
+
+    .footer-top {
+        gap: 6px;
+    }
+
+    .footer-contacts {
+        flex-direction: row; /* 글씨와 아이콘 한 줄로 */
+        justify-content: center;
+        gap: 4px;
+        flex-wrap: wrap;    /* 화면 좁으면 줄바꿈 가능 */
+    }
+
+    .footer-contacts span {
+        font-size: 14px;
+    }
+
+    .footer-icon {
+        width: 28px;
+        height: 28px;
     }
 }
