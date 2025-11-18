@@ -1,5 +1,10 @@
 @import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
 
+html {
+    /* 커서 이미지는 32x32px 크기를 권장합니다. */
+    cursor: url('../image/chicky/chickyCusor.png'), auto; /* 상대 경로로 수정 */
+}
+
 /* General Styling */
 body {
     font-family: 'Nanum Gothic', sans-serif;
@@ -51,6 +56,19 @@ nav a {
     transition: color 0.3s;
 }
 
+/* 클릭 가능한 요소들은 호버 시 다른 커서 아이콘을 표시합니다. */
+a, button,
+.place-img-wrapper img,
+.slider-btn,
+.resident-card,
+.footer-icon,
+.lightbox,
+.level-item,
+.place-prev,
+.place-next {
+    cursor: url('../image/chicky/chickyCusorHover.png'), auto;
+}
+
 nav a:hover {
     color: #ffb74d; /* Pastel orange for hover */
 }
@@ -62,7 +80,7 @@ main {
 
 section {
     max-width: 1000px;
-    margin: 40px auto;
+    margin: 20px auto; /* 상단 마진을 줄여 간격 조정 */
     padding: 20px; /* 기존 40px padding 유지 */
     background-color: #ffffff;
     border-radius: 20px;
@@ -78,7 +96,7 @@ section {
 
 /* 홈 섹션 h1과 p 간격 조정 */
 .home-section {
-    margin: 10px auto;  /* section 기본 margin 덮어쓰기 */
+    margin: 0 auto;  /* 상하 마진 제거 */
     padding: 10px;      /* 필요하면 기존 패딩 유지 */
 }
 
@@ -107,7 +125,7 @@ section h2 {
 
 .main-logo {
     max-width: 200px;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* 로고 아래 마진 축소 */
 }
 
 .recruitment-image {
@@ -170,27 +188,56 @@ section h2 {
     text-align: left;
 }
 
+/* 카드 헤더 (제목 + 네비 버튼) */
+.place-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0 10px;
+}
+
 /* 제목 */
 .village-place-card h3 {
     font-size: 24px;
-    margin: 15px 0 10px;
     color: #e67e22;
+    margin: 0; /* 헤더에서 마진 관리 */
+}
+
+/* 시설 설명 텍스트 */
+.village-place-card p {
+    font-size: 16px;
+    margin: 0 0 15px;
+    color: #5d4037;
+}
+
+/* 시설 설명 리스트 */
+.village-place-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.village-place-card li {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #8d6e63; /* 살짝 연한 갈색 */
 }
 
 /* 이미지 캐러셀 */
 .place-img-carousel {
     position: relative;
     width: 100%;
-    height: 180px;
+    height: 160px; /* 높이 축소 */
     overflow: hidden;
     border-radius: 12px;
-    background: #f0f0f0;
+    background: #ffffff; /* 배경 흰색으로 변경 */
+    border: 1px solid #eee; /* 흰 배경에 경계선 추가 */
 }
 
 .place-img-wrapper img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: 160px; /* 높이 축소 */
+    object-fit: contain; /* 이미지가 잘리지 않고 비율에 맞게 표시 */
 }
 
 .place-imgs {
@@ -203,11 +250,16 @@ section h2 {
     display: none;
 }
 
-/* 네비 버튼 */
-.place-nav {
+/* 네비게이션 요소 컨테이너 */
+.place-img-carousel .place-nav-buttons,
+.place-img-carousel .place-page {
     position: absolute;
-    bottom: 8px;
-    right: 8px;
+}
+
+/* 좌우 화살표 버튼 */
+.place-nav-buttons {
+    /* position: absolute; 속성 제거 */
+    /* justify-content: flex-end; 오른쪽 정렬 -> 부모에서 처리 */
     display: flex;
     gap: 10px;
     align-items: center;
@@ -215,12 +267,30 @@ section h2 {
 
 .place-prev,
 .place-next {
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
+    width: 28px; /* 크기 키움 */
+    height: 28px; /* 크기 키움 */
+    background-color: #f0f0f0; /* 배경색 추가 */
+    border-radius: 50%; /* 원형으로 만들기 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s; /* 부드러운 호버 효과 */
 }
 
+.place-prev:hover,
+.place-next:hover {
+    background-color: #e0e0e0; /* 호버 시 배경색 변경 */
+}
+
+.place-prev img,
+.place-next img {
+    width: 16px; /* 아이콘 크기 조정 */
+    height: 16px;
+}
+/* 페이지 번호 */
 .place-page {
+    bottom: 8px; /* 아래쪽 여백 조정 */
+    right: 8px;  /* 오른쪽 여백 조정 */
     font-size: 14px;
     color: #fff;
     background: rgba(0,0,0,0.4);
@@ -269,7 +339,6 @@ section h2 {
     position: relative;
     transform-style: preserve-3d;
     border-radius: 12px;
-    cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.66) 0 20px 40px;
 
     perspective: 1000px; /* 3D 효과 유지 */
@@ -435,6 +504,8 @@ section h2 {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin-right: 25px; /* 프로필 정보와의 간격 추가 */
+    flex-shrink: 0; /* 컨테이너 크기가 줄어들 때 이미지 크기 유지 */
 }
 
 .profile-pic img {
@@ -493,7 +564,6 @@ section h2 {
     border-radius: 50%;
     width: 46px;
     height: 46px;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -547,7 +617,6 @@ footer {
 .footer-icon {
     width: 36px;
     height: 36px;
-    cursor: pointer;
     transition: transform 0.2s;
 }
 
@@ -737,4 +806,28 @@ footer {
         width: 28px;
         height: 28px;
     }
+}
+
+/* --- 라이트박스 스타일 --- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none; /* 기본적으로 숨김 */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* 다른 요소들 위에 표시 */
+}
+
+.lightbox.show {
+    display: flex; /* 보일 때 flex로 변경 */
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
 }
