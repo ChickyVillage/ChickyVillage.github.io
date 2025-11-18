@@ -648,7 +648,7 @@ footer {
     }
 
     .resident-card {
-        height: 220px; /* 카드 높이 축소 */
+        height: 250px; /* 카드 높이 축소 */
     }
 
     .resident-card-face.back h3 {
