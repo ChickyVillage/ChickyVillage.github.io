@@ -104,14 +104,12 @@ section h1, section h2 {
     position: relative;
     max-width: 500px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .card-slider {
-    width: 350px;
+    width: 422px;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .card-track {
@@ -120,68 +118,73 @@ section h1, section h2 {
 }
 
 .id-card {
-    flex: 0 0 350px; /* Do not grow, do not shrink, base width 350px */
+    flex: 0 0 420px; /* 가로 비율 */
+    height: 260px;   /* 세로 비율 */
     background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    border: 1px solid #ccc;
     font-family: 'Nanum Gothic', sans-serif;
-    border: 1px solid #ddd;
     transition: transform 0.3s ease;
-    font-size: 16px;
+    overflow: hidden;
 }
 
 .id-card:first-child {
     margin-left: 0;
 }
 
+/* 상단바(주민증 제목 부분) */
 .id-card-header {
-    background-color: #FFDAB9; /* PeachPuff */
-    padding: 10px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    background-color: #FFDAB9;
+    padding: 12px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #5D4037;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    color: #5D4037;
-    font-size: 18px;
 }
 
 .header-logo {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
 }
-
+/* 본문 */
 .id-card-body {
     display: flex;
-    padding: 20px;
+    padding: 20px 25px;
     align-items: flex-start;
 }
 
+/* 프로필 사진 */
 .profile-pic {
-    width: 100px;
-    height: 120px;
-    border: 4px solid #FFDAB9;
+    width: 140px;
+    height: 140px;
     border-radius: 10px;
-    overflow: hidden;
+    border: 3px solid #FFDAB9;
     margin-right: 20px;
-    flex-shrink: 0;
-    background: #f0f0f0;
+    overflow: hidden;
+    background: #ffffff; /* 흰 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .profile-pic img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* 여백 포함해서 이미지 전체 보이게 */
+    background: #ffffff; /* 혹시 모를 투명 PNG 대비 */
 }
 
+/* 텍스트 영역 */
 .profile-info {
     text-align: left;
+    font-size: 14px;
 }
-
 .profile-info .name {
-    font-size: 1.8em;
+    font-size: 22px;
     font-weight: bold;
     color: #333;
     margin-top: 0;
@@ -189,52 +192,51 @@ section h1, section h2 {
 }
 
 .profile-info p {
-    font-size: 0.95em;
-    margin: 5px 0;
+    margin: 4px 0;
     color: #555;
-    line-height: 1.4;
 }
 
+/* 주요업무만 블록 처리 */
+.profile-info p strong[data-field="job"] {
+    display: block;
+    margin-bottom: 3px;
+}
+
+/* 기본 strong 스타일(나이:, 직업:, 특기:) */
 .profile-info p strong {
-    color: #D2691E; /* Chocolate color */
-    display: inline-block;
-    width: 70px;
+    display: inline;
+    width: auto;
+    margin-right: 4px; /* 필요하면 약간만 띄우기 */
 }
 
+/* 좌우 이동 버튼 */
 .slider-btn {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.75);
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 46px;
+    height: 46px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    z-index: 10;
-    transition: background-color 0.3s;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    transition: 0.3s;
 }
 
 .slider-btn:hover {
-    background: white;
+    background: #fff;
 }
 
 .slider-btn img {
-    width: 25px;
+    width: 22px;
 }
 
-.prev-btn {
-    left: 0;
-}
-
-.next-btn {
-    right: 0;
-}
-
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
 
 /* Footer */
 footer {
