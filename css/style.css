@@ -69,10 +69,15 @@ section {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
+section {
+    padding-top: 20px; /* 기존 80px~120px 같은 값이면 너무 큼 */
+}
 
-section h1, section h2 {
-    color: #e67e22; /* Deeper orange for headings */
+section h1, 
+section h2 {
+    color: #e67e22;
     font-size: 48px;
+    margin-top: 20px;      /* ← 추가 */
     margin-bottom: 20px;
 }
 
