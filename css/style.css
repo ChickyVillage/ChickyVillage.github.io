@@ -63,21 +63,18 @@ main {
 section {
     max-width: 1000px;
     margin: 40px auto;
-    padding: 40px;
+    padding: 20px; /* 기존 40px padding 유지 */
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     text-align: center;
-}
-section {
-    padding-top: 20px; /* 기존 80px~120px 같은 값이면 너무 큼 */
 }
 
 section h1, 
 section h2 {
     color: #e67e22;
     font-size: 48px;
-    margin-top: 20px;      /* ← 추가 */
+    margin-top: 20px;
     margin-bottom: 20px;
 }
 
@@ -183,35 +180,91 @@ section h2 {
 
 .card-slider-container {
     position: relative;
-    max-width: 500px;
+    max-width: 550px; /* 전체 슬라이더 컨테이너 폭 */
     margin: 0 auto;
+    padding: 0 60px; /* 버튼을 위한 여백 */
+    box-sizing: border-box;
 }
 
 .card-slider {
-    width: 422px;
-    overflow: hidden;
+    width: 100%;
+    overflow: hidden; /* 이 컨테이너 밖의 내용은 숨김 */
     margin: 0 auto;
 }
 
 .card-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.resident-card-wrap {
+    flex: 0 0 100%; /* 한 장씩 보이도록 */
+    box-sizing: border-box;
+    padding: 10px; /* 카드 주변 여백 */
+}
+
+
+
+/* 카드 자체 */
+.resident-card {
+    width: 100%;
+    height: 260px; /* 카드 높이 고정 */
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.9s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.66) 0 20px 40px;
+}
+
+/* flip 상태 */
+.resident-card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* 앞뒤 공통 */
+.resident-card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+/* 앞면 */
+.resident-card-face.front {
+    background: #fff9f0;
+}
+
+/* 뒷면 */
+.resident-card-face.back {
+    background: #ffe9c9;
+    transform: rotateY(180deg);
+    font-size: 18px;
+    color: #5a3b17;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.resident-card-face.back h3 {
+    margin-top: 10px;
+    color: #d2691e;
+}
+
+.resident-card-face.back ul {
+    margin-bottom: 20px;
 }
 
 .id-card {
-    flex: 0 0 420px; /* 가로 비율 */
-    height: 260px;   /* 세로 비율 */
+    width: 100%;
+    height: 100%;
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-    border: 1px solid #ccc;
     font-family: 'Nanum Gothic', sans-serif;
-    transition: transform 0.3s ease;
     overflow: hidden;
-}
-
-.id-card:first-child {
-    margin-left: 0;
+    border: 1px solid #ccc;
 }
 
 /* 상단바(주민증 제목 부분) */
@@ -231,6 +284,7 @@ section h2 {
     height: 22px;
     margin-right: 8px;
 }
+
 /* 본문 */
 .id-card-body {
     display: flex;
@@ -238,10 +292,10 @@ section h2 {
     align-items: flex-start;
 }
 
-/* 프로필 사진 */
+/* 프로필 사진 유지하면서 딱 맞게 자르기 */
 .profile-pic {
-    width: 140px;
-    height: 140px;
+    width: 120px; /* 크기 살짝 줄임 */
+    height: 120px;
     border-radius: 10px;
     border: 3px solid #FFDAB9;
     margin-right: 20px;
@@ -250,19 +304,20 @@ section h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .profile-pic img {
     width: 100%;
     height: 100%;
     object-fit: contain; /* 여백 포함해서 이미지 전체 보이게 */
-    background: #ffffff; /* 혹시 모를 투명 PNG 대비 */
 }
 
 /* 텍스트 영역 */
 .profile-info {
     text-align: left;
     font-size: 14px;
+    flex-grow: 1;
 }
 .profile-info .name {
     font-size: 22px;
@@ -275,6 +330,7 @@ section h2 {
 .profile-info p {
     margin: 4px 0;
     color: #555;
+    word-break: keep-all;
 }
 
 /* 주요업무만 블록 처리 */
@@ -286,8 +342,7 @@ section h2 {
 /* 기본 strong 스타일(나이:, 직업:, 특기:) */
 .profile-info p strong {
     display: inline;
-    width: auto;
-    margin-right: 4px; /* 필요하면 약간만 띄우기 */
+    margin-right: 4px;
 }
 
 /* 좌우 이동 버튼 */
@@ -306,6 +361,7 @@ section h2 {
     top: 50%;
     transform: translateY(-50%);
     transition: 0.3s;
+    z-index: 10;
 }
 
 .slider-btn:hover {
