@@ -204,18 +204,83 @@ section h2 {
     padding: 10px; /* 카드 주변 여백 */
 }
 
-
-
-/* 카드 자체 */
+/* 카드 자체: 플립용 컨테이너 */
 .resident-card {
     width: 100%;
     height: 260px; /* 카드 높이 고정 */
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.9s cubic-bezier(0.445, 0.05, 0.55, 0.95);
     border-radius: 12px;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.66) 0 20px 40px;
+
+    perspective: 1000px; /* 3D 효과 유지 */
+    transition: transform 0.9s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    overflow: visible; /* 카드 내부 face가 제대로 보이도록 */
+}
+
+/* 앞면만 메탈릭/홀로그램 효과 */
+.resident-card-face.front {
+    background: linear-gradient(135deg, #d7d7d7, #a7a7a7, #d7d7d7);
+    overflow: hidden; /* 빛 효과 제한 */
+}
+
+/* 뒷면은 별도 색상, transform 180도 */
+.resident-card-face.back {
+    background: linear-gradient(135deg, #ffd9b3, #ffbf80, #ffc999);
+    transform: rotateY(180deg);
+    overflow-y: auto;
+}
+
+/* 빛나는 효과를 위한 유사 요소 */
+.resident-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.5) 0%,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(255, 255, 255, 0.5) 100%);
+    opacity: 0;
+    transform: scale(1.5) rotate(45deg);
+    transition: opacity 0.4s ease-in-out;
+    pointer-events: none; /* 마우스 이벤트 통과 */
+}
+
+/* 호버 시 빛나는 효과 */
+.resident-card:hover::before {
+    opacity: 1;
+    animation: holo-shine 4s infinite linear;
+}
+
+/* 테두리 하이라이트 효과 */
+.resident-card::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border-radius: 10px;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0) 40%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+}
+
+.resident-card:hover::after {
+    opacity: 1;
+}
+
+@keyframes holo-shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
 /* flip 상태 */
@@ -231,21 +296,6 @@ section h2 {
     backface-visibility: hidden;
     border-radius: 12px;
     box-sizing: border-box;
-}
-
-/* 앞면 */
-.resident-card-face.front {
-    background: #fff9f0;
-}
-
-/* 뒷면 */
-.resident-card-face.back {
-    background: #ffe9c9;
-    transform: rotateY(180deg);
-    font-size: 18px;
-    color: #5a3b17;
-    overflow-y: auto;
-    padding: 20px;
 }
 
 .resident-card-face.back h3 {
@@ -383,4 +433,15 @@ footer {
     background-color: #fdf6e9;
     color: #a1887f;
     font-size: 18px;
+}
+
+/* 마우스 호버 3D 효과용 transition */
+.resident-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    perspective: 1000px;
+}
+
+/* 호버 시 그림자 강조 */
+.resident-card.hovered {
+    box-shadow: rgba(0, 0, 0, 0.4) 0 30px 60px;
 }
