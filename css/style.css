@@ -70,6 +70,22 @@ section {
     text-align: center;
 }
 
+/* 홈 섹션 h1과 p 간격 조정 */
+.home-section {
+    margin: 10px auto;  /* section 기본 margin 덮어쓰기 */
+    padding: 10px;      /* 필요하면 기존 패딩 유지 */
+}
+
+.home-section h1 {
+    margin-top: 0;      /* h1 위쪽 간격 제거 */
+    margin-bottom: 8px; /* h1과 p 사이 간격 */
+}
+
+.home-section p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
 section h1, 
 section h2 {
     color: #e67e22;
@@ -229,7 +245,9 @@ section h2 {
 .resident-card-face.back {
     background: linear-gradient(135deg, #ffd9b3, #ffbf80, #ffc999);
     transform: rotateY(180deg);
-    overflow-y: auto;
+    overflow-y: auto;          /* 세로 스크롤 가능 */
+    padding: 15px;             /* 카드 안쪽 패딩 */
+    box-sizing: border-box;    /* 패딩 포함해서 높이 계산 */
 }
 
 /* 빛나는 효과를 위한 유사 요소 */
@@ -300,11 +318,29 @@ section h2 {
 
 .resident-card-face.back h3 {
     margin-top: 10px;
+    margin-bottom: 10px;      /* 제목과 리스트 간격 조정 */
     color: #d2691e;
+    font-size: 22px;          /* 기존보다 작게 */
+    font-weight: bold;
 }
 
 .resident-card-face.back ul {
-    margin-bottom: 20px;
+    min-height: 24px;       /* 리스트가 비어도 최소 높이 유지 */
+    margin: 6px 0 12px;     
+    padding-left: 40px;     /* li 들여쓰기 */
+    text-align: left;
+    list-style-position: inside;
+}
+.resident-card-face.back li {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    color: #555;           /* 회색 글씨 */
+}
+
+/* 리스트 아래 h3와의 간격 추가 */
+.resident-card-face.back ul + h3 {
+    margin-top: 20px;       /* 리스트 뒤에 h3가 나오면 간격 추가 */
 }
 
 .id-card {
@@ -444,4 +480,148 @@ footer {
 /* 호버 시 그림자 강조 */
 .resident-card.hovered {
     box-shadow: rgba(0, 0, 0, 0.4) 0 30px 60px;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+
+    body {
+        font-size: 16px;  /* 기본 글씨 작게 */
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;      /* 줄 바꿈 허용 */
+        justify-content: center; /* 중앙 정렬 */
+        gap: 12px;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        min-width: 80px;     /* 각 메뉴 최소 폭 지정 */
+        text-align: center;  /* 글씨 중앙 정렬 */
+    }
+
+    nav a {
+        font-size: 18px;
+        white-space: normal; /* 글자가 길면 줄 바꿈 허용 */
+    }
+
+    .home-section {
+        margin: 5px 10px;
+        padding: 15px;
+    }
+
+    .home-section h1 {
+        font-size: 28px;
+        margin-bottom: 6px;
+    }
+
+    .home-section p {
+        font-size: 16px;
+    }
+    section {
+        margin: 20px 10px;
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    section h1, section h2 {
+        font-size: 28px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    /* 시설 그리드 1열 */
+    .village-place-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .village-place-card h3 {
+        font-size: 20px;
+        margin: 10px 0 8px;
+    }
+
+    .place-img-carousel {
+        height: 150px;
+    }
+
+    .place-img-wrapper img {
+        height: 150px;
+    }
+
+    /* 주민증 카드 슬라이더 */
+    .card-slider-container {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .resident-card-wrap {
+        padding: 5px;
+    }
+
+    .resident-card {
+        height: 220px; /* 카드 높이 축소 */
+    }
+
+    .resident-card-face.back h3 {
+        font-size: 18px;
+    }
+
+    .resident-card-face.back ul {
+        padding-left: 30px;
+    }
+
+    .resident-card-face.back li {
+        font-size: 12px;
+    }
+
+    /* 주민증 카드: 사진 왼쪽, 내용 오른쪽 */
+    .id-card-body {
+        flex-direction: row;       /* 행 방향 */
+        align-items: flex-start;   /* 위쪽 정렬 */
+        justify-content: flex-start;
+        padding: 20px 15px 10px 15px;
+    }
+
+    .profile-pic {
+        width: 90px;
+        height: 90px;
+        margin-right: 12px;
+        flex-shrink: 0;            /* 이미지 축소 방지 */
+    }
+
+    .profile-info {
+        flex: 1;                   /* 남은 공간 텍스트 차지 */
+        text-align: left;
+        margin-top: 0;             /* 위쪽 여백 제거 */
+    }
+
+    .profile-info .name {
+        font-size: 18px;
+        margin-bottom: 6px;
+        word-break: break-word;    /* 긴 이름 줄바꿈 */
+    }
+
+    .profile-info p {
+        font-size: 12px;
+        margin: 2px 0;
+        word-break: break-word;    /* 내용 깨짐 방지 */
+    }
+
+    .slider-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .slider-btn img {
+        width: 18px;
+    }
+
+    footer {
+        font-size: 14px;
+        padding: 15px;
+    }
 }
