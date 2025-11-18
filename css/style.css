@@ -555,6 +555,14 @@ footer {
     transform: scale(1.1);
 }
 
+.footer-contacts a {
+    margin-right: 12px; /* 각 아이콘 오른쪽 여백 */
+}
+
+.footer-contacts span {
+    margin-right: 4px; /* 텍스트와 아이콘 간 간격 */
+}
+
 
 /* 마우스 호버 3D 효과용 transition */
 .resident-card {
