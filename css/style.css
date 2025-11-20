@@ -76,6 +76,17 @@ main {
     padding-top: 80px;
 }
 
+/* 방문자 배지 */
+.visitor-badge {
+    position: absolute;      /* section 안에서 절대 위치 */
+    top: 80px;               /* 상단 여백 */
+    right: 15px;             /* 우측 여백 */
+}
+
+.visitor-badge img {
+    height: 20px;            /* 배지 크기 */
+}
+
 section {
     max-width: 1000px;
     margin: 20px auto;
