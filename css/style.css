@@ -836,6 +836,8 @@ footer {
 
 /* Mobile 600px */
 @media (max-width: 600px) {
+    /* 방문자 배지 */
+    .visitor-badge { top: 100px; }
     .application-box { flex-direction: column; gap: 0;  align-items: center; text-align: center; }
     .application-left, .application-right { width: 100%; border-right: none; border-bottom: 1px dashed #ccc; }
     .application-right { border-bottom: none; padding: 10px 15px; margin-top: 0 !important;  }
