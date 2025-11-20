@@ -703,7 +703,8 @@ footer {
 
 .application-left,
 .application-right {
-    width: 48%;
+    width: 50%;
+    text-align: center;
 }
 
 .application-left {
@@ -720,6 +721,7 @@ footer {
     color: #5d4037;
     margin-bottom: 5px;
     font-size: 15px;
+    text-align: center; 
 }
 
 .app-value {
@@ -727,6 +729,7 @@ footer {
     color: #a1887f;
     margin-top: 0;
     margin-bottom: 15px;
+    text-align: center; 
 }
 
 .app-value a {
@@ -833,10 +836,10 @@ footer {
 
 /* Mobile 600px */
 @media (max-width: 600px) {
-    .application-box { flex-direction: column; gap: 0; }
-    .application-left, .application-right { width: 100%; padding: 10px 15px; border-right: none; border-bottom: 1px dashed #ccc; }
-    .application-right { border-bottom: none; margin-top: 0 !important; }
-    .application-left p, .application-right p { font-size: 0.95rem; line-height: 1.4rem; }
+    .application-box { flex-direction: column; gap: 0;  align-items: center; text-align: center; }
+    .application-left, .application-right { width: 100%; border-right: none; border-bottom: 1px dashed #ccc; }
+    .application-right { border-bottom: none; padding: 10px 15px; margin-top: 0 !important;  }
+    .application-left p, .application-right p { font-size: 0.95rem; line-height: 1.4rem; text-align: center; }
     .app-value a { word-break: keep-all; }
     #recruitment h3 { text-align: center; margin-top: 30px; }
 }
