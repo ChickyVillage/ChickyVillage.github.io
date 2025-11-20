@@ -414,7 +414,6 @@
             </div>
         </section>
 
-
         <section id="announcements">
             <h2>마을 공지</h2>
             <p>등록된 공지사항이 없습니다.</p>
@@ -422,11 +421,62 @@
 
         <section id="recruitment">
             <h2>마을 입주</h2>
-            <p>꼬꼬 마을과 함께할 새로운 가족을 찾습니다!
-            <br>우리와 함께 즐거운 시간을 보내고 싶다면 언제든지 환영입니다.</p>
+            <p>꼬꼬 마 을에서 함께 즐겁고 오래 마크 라이프를 즐길 2분을 모집합니다.</p>
             <a href="http://pf.kakao.com/_fQdpn" target="_blank" title="입주 문의">
                 <img src="image/recruit/recruit_2.gif" alt="마을 모집 공고" class="recruitment-image">
             </a>
+
+            <div class="recruitment-notice">
+
+            <div class="notice-item">
+                <p class="notice-title">💡환영합니다</p>
+                <ul class="notice-desc">
+                    <li>2000년생 이전 출생자! 🕰️</li>
+                    <li>2002년 월드컵의 함성을 생생히 기억하는 분! ⚽️</li>
+                    <li>싸이월드 미니홈피 BGM 선곡 장인이었던 분! 🎶</li>
+                </ul>
+            </div>
+
+            <div class="notice-item">
+                <p class="notice-title">💖 띵타이쿤 서버 복잡하고 어려우셨나요?</p>
+                <p class="notice-desc">
+                    이장님이 할 일 분배와 관리는 물론, 무엇을 해야 할지 전반적으로 도움을 드릴 거예요. 낯 가리는 분, 광부, 어부, 농부 모두 환영해요!
+                </p>
+            </div>
+
+            <div class="notice-item">
+                <p class="notice-title">🤝 오래 함께할 '결이 맞는' 분들을 찾아요!</p>
+                <p class="notice-desc">
+                    꼬꼬마을의 안내와 분위기를 꼼꼼히 살펴보시고, 함께하고 싶다면 언제든 문을 두드려 주세요!
+                </p>
+            </div>
+        </div>
+
+            <h3>접수기간 · 방법</h3>
+            <div class="application-box">
+                <div class="application-left">
+                    <p class="app-value"><span class="app-label">남은 기간</span>&nbsp;&nbsp;<span id="countdown">계산 중...</span></p>
+                    <p class="app-value"><span class="app-label">시작일</span>&nbsp;&nbsp;2025.11.20(목)</p>
+                    <p class="app-value"><span class="app-label">마감일</span>&nbsp;&nbsp;2025.11.23(일)</p>
+                </div>
+                <div class="application-right">
+                    <p class="app-label">접수 방법</p>
+                    <p class="app-value"><a href="http://pf.kakao.com/_fQdpn" target="_blank">카카오 채널 지원</a></p>
+                    <p class="app-label">지원 양식</p>
+                    <p class="app-value">꼬꼬 마 을 입주 신청서</p>
+                </div>
+            </div>
+
+            <!-- 지원 통계 -->
+            <h3>모집 현황</h3>
+            <div class="application-box">
+                <p class="stats-text">
+                    모집 인원 : <strong>2명</strong> 
+                    &nbsp;|&nbsp; 
+                    현재 지원자 : <strong>0명</strong>
+                </p>
+            </div>
+
         </section>
     </main>
 
@@ -454,7 +504,7 @@
         <img id="lightbox-image" src="" alt="Enlarged image">
     </div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // Smooth scrolling for anchor links
@@ -469,6 +519,34 @@
                     }
                 });
             });
+
+            // Countdown timer
+            function startCountdown() {
+                const countdownElement = document.getElementById('countdown');
+                if (!countdownElement) return;
+
+                const deadline = new Date('2025-11-23T23:59:59').getTime();
+
+                const interval = setInterval(() => {
+                    const now = new Date().getTime();
+                    const distance = deadline - now;
+
+                    if (distance < 0) {
+                        clearInterval(interval);
+                        countdownElement.innerHTML = "모집 마감";
+                        return;
+                    }
+
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    countdownElement.innerHTML = `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+                }, 1000);
+            }
+            startCountdown();
+
 
             // Lightbox elements
             const lightbox = document.getElementById('lightbox-modal');
@@ -602,6 +680,7 @@
                 updateSliderPosition();
             }
         });
+    
     </script>
 </body>
 </html>

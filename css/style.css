@@ -1,22 +1,33 @@
 @import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
 
+/* --- Global Styles --- */
 html {
-    /* 커서 이미지는 32x32px 크기를 권장합니다. */
-    cursor: url('../image/chicky/chickyCusor.png'), auto; /* 상대 경로로 수정 */
+    cursor: url('../image/chicky/chickyCusor.png'), auto;
 }
 
-/* General Styling */
 body {
     font-family: 'Nanum Gothic', sans-serif;
-    background-color: #fffaf0; /* Very light pastel orange (Floral White) */
-    color: #5d4037; /* Soft brown for text */
+    background-color: #fffaf0;
+    color: #5d4037;
     margin: 0;
     padding: 0;
     font-size: 24px;
     line-height: 1.6;
 }
 
-/* Header and Navigation */
+a, button,
+.place-img-wrapper img,
+.slider-btn,
+.resident-card,
+.footer-icon,
+.lightbox,
+.level-item,
+.place-prev,
+.place-next {
+    cursor: url('../image/chicky/chickyCusorHover.png'), auto;
+}
+
+/* --- Header & Navigation --- */
 header {
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
@@ -50,38 +61,25 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #8d6e63; /* Lighter brown */
+    color: #8d6e63;
     font-weight: bold;
     font-size: 28px;
     transition: color 0.3s;
 }
 
-/* 클릭 가능한 요소들은 호버 시 다른 커서 아이콘을 표시합니다. */
-a, button,
-.place-img-wrapper img,
-.slider-btn,
-.resident-card,
-.footer-icon,
-.lightbox,
-.level-item,
-.place-prev,
-.place-next {
-    cursor: url('../image/chicky/chickyCusorHover.png'), auto;
-}
-
 nav a:hover {
-    color: #ffb74d; /* Pastel orange for hover */
+    color: #ffb74d;
 }
 
-/* Main Content */
+/* --- Main Content --- */
 main {
-    padding-top: 80px; /* Adjust for fixed header */
+    padding-top: 80px;
 }
 
 section {
     max-width: 1000px;
-    margin: 20px auto; /* 상단 마진을 줄여 간격 조정 */
-    padding: 20px; /* 기존 40px padding 유지 */
+    margin: 20px auto;
+    padding: 20px;
     background-color: #ffffff;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
@@ -94,15 +92,24 @@ section {
     margin: 24px 0;
 }
 
-/* 홈 섹션 h1과 p 간격 조정 */
+section h1, section h2 {
+    color: #e67e22;
+    font-size: 48px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* --- Home Section --- */
 .home-section {
-    margin: 0 auto;  /* 상하 마진 제거 */
-    padding: 10px;      /* 필요하면 기존 패딩 유지 */
+    margin: 0 auto;
+    padding: 10px;
+    background: none;
+    box-shadow: none;
 }
 
 .home-section h1 {
-    margin-top: 0;      /* h1 위쪽 간격 제거 */
-    margin-bottom: 8px; /* h1과 p 사이 간격 */
+    margin-top: 0;
+    margin-bottom: 8px;
 }
 
 .home-section p {
@@ -110,22 +117,9 @@ section {
     margin-bottom: 10px;
 }
 
-section h1, 
-section h2 {
-    color: #e67e22;
-    font-size: 48px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.home-section {
-    background: none;
-    box-shadow: none;
-}
-
 .main-logo {
     max-width: 200px;
-    margin-bottom: 10px; /* 로고 아래 마진 축소 */
+    margin-bottom: 10px;
 }
 
 .recruitment-image {
@@ -134,7 +128,7 @@ section h2 {
     margin-top: 20px;
 }
 
-/* 마을 단계 소개 */
+/* --- Village Level --- */
 .village-level-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -170,8 +164,7 @@ section h2 {
     color: #a1887f;
 }
 
-/* 시설 소개 */
-/* 그리드 3×2 */
+/* --- Village Place Cards --- */
 .village-place-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -179,7 +172,6 @@ section h2 {
     margin-top: 40px;
 }
 
-/* 카드 기본 */
 .village-place-card {
     background: #fff;
     padding: 20px;
@@ -188,7 +180,6 @@ section h2 {
     text-align: left;
 }
 
-/* 카드 헤더 (제목 + 네비 버튼) */
 .place-card-header {
     display: flex;
     justify-content: space-between;
@@ -196,21 +187,18 @@ section h2 {
     margin: 15px 0 10px;
 }
 
-/* 제목 */
 .village-place-card h3 {
     font-size: 24px;
     color: #e67e22;
-    margin: 0; /* 헤더에서 마진 관리 */
+    margin: 0;
 }
 
-/* 시설 설명 텍스트 */
 .village-place-card p {
     font-size: 16px;
     margin: 0 0 15px;
     color: #5d4037;
 }
 
-/* 시설 설명 리스트 */
 .village-place-card ul {
     list-style: none;
     padding: 0;
@@ -220,24 +208,24 @@ section h2 {
 .village-place-card li {
     font-size: 15px;
     margin-bottom: 8px;
-    color: #8d6e63; /* 살짝 연한 갈색 */
+    color: #8d6e63;
 }
 
-/* 이미지 캐러셀 */
+/* --- Image Carousel --- */
 .place-img-carousel {
     position: relative;
     width: 100%;
-    height: 160px; /* 높이 축소 */
+    height: 160px;
     overflow: hidden;
     border-radius: 12px;
-    background: #ffffff; /* 배경 흰색으로 변경 */
-    border: 1px solid #eee; /* 흰 배경에 경계선 추가 */
+    background: #ffffff;
+    border: 1px solid #eee;
 }
 
 .place-img-wrapper img {
     width: 100%;
-    height: 160px; /* 높이 축소 */
-    object-fit: contain; /* 이미지가 잘리지 않고 비율에 맞게 표시 */
+    height: 160px;
+    object-fit: contain;
 }
 
 .place-imgs {
@@ -250,16 +238,7 @@ section h2 {
     display: none;
 }
 
-/* 네비게이션 요소 컨테이너 */
-.place-img-carousel .place-nav-buttons,
-.place-img-carousel .place-page {
-    position: absolute;
-}
-
-/* 좌우 화살표 버튼 */
 .place-nav-buttons {
-    /* position: absolute; 속성 제거 */
-    /* justify-content: flex-end; 오른쪽 정렬 -> 부모에서 처리 */
     display: flex;
     gap: 10px;
     align-items: center;
@@ -267,38 +246,39 @@ section h2 {
 
 .place-prev,
 .place-next {
-    width: 28px; /* 크기 키움 */
-    height: 28px; /* 크기 키움 */
-    background-color: #f0f0f0; /* 배경색 추가 */
-    border-radius: 50%; /* 원형으로 만들기 */
+    width: 28px;
+    height: 28px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s; /* 부드러운 호버 효과 */
+    transition: background-color 0.2s;
 }
 
 .place-prev:hover,
 .place-next:hover {
-    background-color: #e0e0e0; /* 호버 시 배경색 변경 */
+    background-color: #e0e0e0;
 }
 
 .place-prev img,
 .place-next img {
-    width: 16px; /* 아이콘 크기 조정 */
+    width: 16px;
     height: 16px;
 }
-/* 페이지 번호 */
+
 .place-page {
-    bottom: 8px; /* 아래쪽 여백 조정 */
-    right: 8px;  /* 오른쪽 여백 조정 */
+    bottom: 8px;
+    right: 8px;
     font-size: 14px;
     color: #fff;
     background: rgba(0,0,0,0.4);
     padding: 2px 6px;
     border-radius: 6px;
+    position: absolute;
 }
 
-/* --- Member ID Card Styles --- */
+/* --- Resident ID Card Slider --- */
 #members {
     background: none;
     box-shadow: none;
@@ -308,15 +288,15 @@ section h2 {
 
 .card-slider-container {
     position: relative;
-    max-width: 550px; /* 전체 슬라이더 컨테이너 폭 */
+    max-width: 550px;
     margin: 0 auto;
-    padding: 0 60px; /* 버튼을 위한 여백 */
+    padding: 0 60px;
     box-sizing: border-box;
 }
 
 .card-slider {
     width: 100%;
-    overflow: hidden; /* 이 컨테이너 밖의 내용은 숨김 */
+    overflow: hidden;
     margin: 0 auto;
 }
 
@@ -327,41 +307,36 @@ section h2 {
 }
 
 .resident-card-wrap {
-    flex: 0 0 100%; /* 한 장씩 보이도록 */
+    flex: 0 0 100%;
     box-sizing: border-box;
-    padding: 10px; /* 카드 주변 여백 */
+    padding: 10px;
 }
 
-/* 카드 자체: 플립용 컨테이너 */
 .resident-card {
     width: 100%;
-    height: 260px; /* 카드 높이 고정 */
+    height: 260px;
     position: relative;
     transform-style: preserve-3d;
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.66) 0 20px 40px;
-
-    perspective: 1000px; /* 3D 효과 유지 */
+    perspective: 1000px;
     transition: transform 0.9s cubic-bezier(0.445, 0.05, 0.55, 0.95);
-    overflow: visible; /* 카드 내부 face가 제대로 보이도록 */
+    overflow: visible;
 }
 
-/* 앞면만 메탈릭/홀로그램 효과 */
 .resident-card-face.front {
     background: linear-gradient(135deg, #d7d7d7, #a7a7a7, #d7d7d7);
-    overflow: hidden; /* 빛 효과 제한 */
+    overflow: hidden;
 }
 
-/* 뒷면은 별도 색상, transform 180도 */
 .resident-card-face.back {
     background: linear-gradient(135deg, #ffd9b3, #ffbf80, #ffc999);
     transform: rotateY(180deg);
-    overflow-y: auto;          /* 세로 스크롤 가능 */
-    padding: 15px;             /* 카드 안쪽 패딩 */
-    box-sizing: border-box;    /* 패딩 포함해서 높이 계산 */
+    overflow-y: auto;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
-/* 빛나는 효과를 위한 유사 요소 */
 .resident-card::before {
     content: '';
     position: absolute;
@@ -370,23 +345,21 @@ section h2 {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg,
-        rgba(255, 255, 255, 0.5) 0%,
-        rgba(255, 255, 255, 0) 40%,
-        rgba(255, 255, 255, 0) 60%,
-        rgba(255, 255, 255, 0.5) 100%);
+        rgba(255,255,255,0.5) 0%,
+        rgba(255,255,255,0) 40%,
+        rgba(255,255,255,0) 60%,
+        rgba(255,255,255,0.5) 100%);
     opacity: 0;
     transform: scale(1.5) rotate(45deg);
     transition: opacity 0.4s ease-in-out;
-    pointer-events: none; /* 마우스 이벤트 통과 */
+    pointer-events: none;
 }
 
-/* 호버 시 빛나는 효과 */
 .resident-card:hover::before {
     opacity: 1;
     animation: holo-shine 4s infinite linear;
 }
 
-/* 테두리 하이라이트 효과 */
 .resident-card::after {
     content: '';
     position: absolute;
@@ -395,9 +368,9 @@ section h2 {
     width: calc(100% - 4px);
     height: calc(100% - 4px);
     border-radius: 10px;
-    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
-        rgba(255, 255, 255, 0.4),
-        rgba(255, 255, 255, 0) 40%);
+    background: radial-gradient(circle at var(--mx,50%) var(--my,50%),
+        rgba(255,255,255,0.4),
+        rgba(255,255,255,0) 40%);
     opacity: 0;
     transition: opacity 0.4s;
     pointer-events: none;
@@ -412,12 +385,10 @@ section h2 {
     100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
-/* flip 상태 */
 .resident-card.flipped {
     transform: rotateY(180deg);
 }
 
-/* 앞뒤 공통 */
 .resident-card-face {
     position: absolute;
     width: 100%;
@@ -428,32 +399,32 @@ section h2 {
 }
 
 .resident-card-face.back h3 {
-    margin-top: 10px;
-    margin-bottom: 10px;      /* 제목과 리스트 간격 조정 */
+    margin: 10px 0;
     color: #d2691e;
-    font-size: 22px;          /* 기존보다 작게 */
+    font-size: 22px;
     font-weight: bold;
 }
 
 .resident-card-face.back ul {
-    min-height: 24px;       /* 리스트가 비어도 최소 높이 유지 */
-    margin: 6px 0 12px;     
-    padding-left: 40px;     /* li 들여쓰기 */
+    min-height: 24px;
+    margin: 6px 0 12px;
+    padding-left: 40px;
     text-align: left;
     list-style-position: inside;
 }
+
 .resident-card-face.back li {
     font-size: 14px;
     line-height: 1.4;
     margin-bottom: 4px;
-    color: #555;           /* 회색 글씨 */
+    color: #555;
 }
 
-/* 리스트 아래 h3와의 간격 추가 */
 .resident-card-face.back ul + h3 {
-    margin-top: 20px;       /* 리스트 뒤에 h3가 나오면 간격 추가 */
+    margin-top: 20px;
 }
 
+/* ID Card */
 .id-card {
     width: 100%;
     height: 100%;
@@ -464,7 +435,6 @@ section h2 {
     border: 1px solid #ccc;
 }
 
-/* 상단바(주민증 제목 부분) */
 .id-card-header {
     background-color: #FFDAB9;
     padding: 12px 0;
@@ -482,61 +452,54 @@ section h2 {
     margin-right: 8px;
 }
 
-/* 본문 */
 .id-card-body {
     display: flex;
     padding: 20px 25px;
     align-items: flex-start;
     position: relative;
     background-color: #fff;
-    border-radius: 0 0 12px 12px; /* 좌상, 우상, 우하, 좌하 */
+    border-radius: 0 0 12px 12px;
 }
 
-
-/* 프로필 사진 유지하면서 딱 맞게 자르기 */
-/* 공통 프로필 사진 스타일 */
 .profile-pic {
     width: 120px;
     height: 120px;
     border-radius: 10px;
-    padding: 3px; /* 테두리 두께 */
+    padding: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-right: 25px; /* 프로필 정보와의 간격 추가 */
-    flex-shrink: 0; /* 컨테이너 크기가 줄어들 때 이미지 크기 유지 */
+    margin-right: 25px;
+    flex-shrink: 0;
 }
 
 .profile-pic img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 7px; /* padding 때문에 안쪽 둥글기 살짝 줄임 */
+    border-radius: 7px;
 }
 
-/* 남성: 하얀 -> 하늘 */
 .profile-male {
     background: linear-gradient(135deg, #ffffff, #4DA6FF);
 }
 
-/* 여성: 하얀 -> 분홍 */
 .profile-female {
     background: linear-gradient(135deg, #ffffff, #FF7AA3);
 }
 
-/* 텍스트 영역 */
 .profile-info {
     text-align: left;
     font-size: 14px;
     flex-grow: 1;
 }
+
 .profile-info .name {
     font-size: 22px;
     font-weight: bold;
     color: #333;
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin: 0 0 10px;
 }
 
 .profile-info p {
@@ -545,21 +508,19 @@ section h2 {
     word-break: keep-all;
 }
 
-/* 주요업무만 블록 처리 */
 .profile-info p strong[data-field="job"] {
     display: block;
     margin-bottom: 3px;
 }
 
-/* 기본 strong 스타일(나이:, 직업:, 특기:) */
 .profile-info p strong {
     display: inline;
     margin-right: 4px;
 }
 
-/* 좌우 이동 버튼 */
+/* Slider Buttons */
 .slider-btn {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255,255,255,0.75);
     border: none;
     border-radius: 50%;
     width: 46px;
@@ -586,7 +547,7 @@ section h2 {
 .prev-btn { left: 0; }
 .next-btn { right: 0; }
 
-/* Footer */
+/* --- Footer --- */
 footer {
     text-align: center;
     padding: 20px;
@@ -625,209 +586,245 @@ footer {
 }
 
 .footer-contacts a {
-    margin-right: 12px; /* 각 아이콘 오른쪽 여백 */
+    margin-right: 12px;
 }
 
 .footer-contacts span {
-    margin-right: 4px; /* 텍스트와 아이콘 간 간격 */
+    margin-right: 4px;
 }
 
-
-/* 마우스 호버 3D 효과용 transition */
+/* Hover 3D effect */
 .resident-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     perspective: 1000px;
 }
 
-/* 호버 시 그림자 강조 */
 .resident-card.hovered {
     box-shadow: rgba(0, 0, 0, 0.4) 0 30px 60px;
 }
 
-/* 모바일 반응형 */
-@media (max-width: 768px) {
-
-    body {
-        font-size: 16px;  /* 기본 글씨 작게 */
-    }
-
-    nav ul {
-        display: flex;
-        flex-wrap: wrap;      /* 줄 바꿈 허용 */
-        justify-content: center; /* 중앙 정렬 */
-        gap: 12px;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav ul li {
-        min-width: 80px;     /* 각 메뉴 최소 폭 지정 */
-        text-align: center;  /* 글씨 중앙 정렬 */
-    }
-
-    nav a {
-        font-size: 18px;
-        white-space: normal; /* 글자가 길면 줄 바꿈 허용 */
-    }
-
-    .home-section {
-        margin: 5px 10px;
-        padding: 15px;
-    }
-
-    .home-section h1 {
-        font-size: 28px;
-        margin-bottom: 6px;
-    }
-
-    .home-section p {
-        font-size: 16px;
-    }
-    section {
-        margin: 20px 10px;
-        padding: 15px;
-        border-radius: 12px;
-    }
-
-    section h1, section h2 {
-        font-size: 28px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-
-    /* 시설 그리드 1열 */
-    .village-place-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .village-place-card h3 {
-        font-size: 20px;
-        margin: 10px 0 8px;
-    }
-
-    .place-img-carousel {
-        height: 150px;
-    }
-
-    .place-img-wrapper img {
-        height: 150px;
-    }
-
-    /* 주민증 카드 슬라이더 */
-    .card-slider-container {
-        max-width: 100%;
-        padding: 0 20px;
-    }
-
-    .resident-card-wrap {
-        padding: 5px;
-    }
-
-    .resident-card {
-        height: 250px; /* 카드 높이 축소 */
-    }
-
-    .resident-card-face.back h3 {
-        font-size: 18px;
-    }
-
-    .resident-card-face.back ul {
-        padding-left: 30px;
-    }
-
-    .resident-card-face.back li {
-        font-size: 12px;
-    }
-
-    /* 주민증 카드: 사진 왼쪽, 내용 오른쪽 */
-    .id-card-body {
-        flex-direction: row;       /* 행 방향 */
-        align-items: flex-start;   /* 위쪽 정렬 */
-        justify-content: flex-start;
-        padding: 20px 15px 10px 15px;
-    }
-
-    .profile-pic {
-        width: 90px;
-        height: 90px;
-        margin-right: 12px;
-        flex-shrink: 0;            /* 이미지 축소 방지 */
-    }
-
-    .profile-info {
-        flex: 1;                   /* 남은 공간 텍스트 차지 */
-        text-align: left;
-        margin-top: 0;             /* 위쪽 여백 제거 */
-    }
-
-    .profile-info .name {
-        font-size: 18px;
-        margin-bottom: 6px;
-        word-break: break-word;    /* 긴 이름 줄바꿈 */
-    }
-
-    .profile-info p {
-        font-size: 12px;
-        margin: 2px 0;
-        word-break: break-word;    /* 내용 깨짐 방지 */
-    }
-
-    .slider-btn {
-        width: 36px;
-        height: 36px;
-    }
-
-    .slider-btn img {
-        width: 18px;
-    }
-
-    footer {
-        padding: 15px;
-        font-size: 14px;
-    }
-
-    .footer-top {
-        gap: 6px;
-    }
-
-    .footer-contacts {
-        flex-direction: row; /* 글씨와 아이콘 한 줄로 */
-        justify-content: center;
-        gap: 4px;
-        flex-wrap: wrap;    /* 화면 좁으면 줄바꿈 가능 */
-    }
-
-    .footer-contacts span {
-        font-size: 14px;
-    }
-
-    .footer-icon {
-        width: 28px;
-        height: 28px;
-    }
-}
-
-/* --- 라이트박스 스타일 --- */
+/* --- Lightbox --- */
 .lightbox {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: none; /* 기본적으로 숨김 */
+    background-color: rgba(0,0,0,0.8);
+    display: none;
     justify-content: center;
     align-items: center;
-    z-index: 2000; /* 다른 요소들 위에 표시 */
+    z-index: 2000;
 }
 
 .lightbox.show {
-    display: flex; /* 보일 때 flex로 변경 */
+    display: flex;
 }
 
 .lightbox img {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
+}
+
+/* --- Announcement Section --- */
+.announcement-post {
+    background-color: #fdf6e9;
+    border: 1px solid #f5e6d3;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.announcement-post h3 {
+    color: #e67e22;
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.announcement-post p {
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.announcement-post ul {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.announcement-post ul li {
+    margin-bottom: 8px;
+    font-size: 18px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.announcement-post ul li::before {
+    content: '✔️';
+    position: absolute;
+    left: 0;
+    color: #ffb74d;
+}
+
+/* --- Recruitment Box --- */
+#recruitment h3 {
+    color: #e67e22;
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.application-box {
+    display: flex;
+    justify-content: center;   /* ⬅ 가운데 배치 */
+    background-color: #fdf6e9;
+    border: 2px solid #e0d7c1;
+    border-radius: 12px;
+    padding: 10px 15px;
+    text-align: center;         /* 텍스트도 중앙 */
+}
+
+.application-left,
+.application-right {
+    width: 48%;
+}
+
+.application-left {
+    border-right: 2px dashed #ccc;
+    padding-right: 20px;
+}
+
+.application-right {
+    padding-left: 10px;
+}
+
+.app-label {
+    font-weight: bold;
+    color: #5d4037;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.app-value {
+    font-size: 16px;
+    color: #a1887f;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.app-value a {
+    color: #e67e22;
+    text-decoration: none;
+}
+
+.app-value a:hover {
+    text-decoration: underline;
+}
+
+.application-left .app-value:first-child {
+    margin-top: 15px;
+}
+
+#countdown {
+    font-weight: bold;
+    color: #e67e22;
+}
+
+/* 모집 안내 */
+/* 공통 박스 */
+.recruitment-notice {
+    background-color: #fff8f0;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* 타이틀 */
+.recruitment-notice .notice-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #d35400;
+    margin-bottom: 6px;
+}
+
+/* 설명 */
+.recruitment-notice .notice-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* 리스트 */
+.recruitment-notice .notice-desc li {
+    margin-bottom: 6px;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+/* 접수 안내 h3 사이 여백 정리 */
+#recruitment h3 {
+    margin-top: 40px !important;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    body { font-size: 16px; }
+    nav ul { flex-wrap: wrap; justify-content: center; gap: 12px; }
+    nav a { font-size: 18px; white-space: normal; }
+    .home-section { margin: 5px 10px; padding: 15px; }
+    .home-section h1 { font-size: 28px; margin-bottom: 6px; }
+    .home-section p { font-size: 16px; }
+    section { margin: 20px 10px; padding: 15px; border-radius: 12px; }
+    section h1, section h2 { font-size: 28px; margin: 15px 0; }
+    .village-place-grid { grid-template-columns: 1fr; gap: 20px; }
+    .village-place-card h3 { font-size: 20px; margin: 10px 0 8px; }
+    .place-img-carousel { height: 150px; }
+    .place-img-wrapper img { height: 150px; }
+    .card-slider-container { max-width: 100%; padding: 0 20px; }
+    .resident-card-wrap { padding: 5px; }
+    .resident-card { height: 250px; }
+    .resident-card-face.back h3 { font-size: 18px; }
+    .resident-card-face.back ul { padding-left: 30px; }
+    .resident-card-face.back li { font-size: 12px; }
+    .id-card-body { flex-direction: row; align-items: flex-start; justify-content: flex-start; padding: 20px 15px 10px 15px; }
+    .profile-pic { width: 90px; height: 90px; margin-right: 12px; }
+    .profile-info .name { font-size: 18px; margin-bottom: 6px; word-break: break-word; }
+    .profile-info p { font-size: 12px; margin: 2px 0; word-break: break-word; }
+    .slider-btn { width: 36px; height: 36px; }
+    .slider-btn img { width: 18px; }
+    footer { padding: 15px; font-size: 14px; }
+    .footer-top { gap: 6px; }
+    .footer-contacts { flex-direction: row; justify-content: center; gap: 4px; flex-wrap: wrap; }
+    .footer-contacts span { font-size: 14px; }
+    .footer-icon { width: 28px; height: 28px; }
+    .recruitment-notice {
+        padding: 18px 20px;
+    }
+    .recruitment-notice p,
+    .recruitment-notice ul li {
+        font-size: 18px;
+    }
+    .recruitment-notice p.title {
+        font-size: 22px;
+    }
+}
+
+/* Mobile 600px */
+@media (max-width: 600px) {
+    .application-box { flex-direction: column; gap: 0; }
+    .application-left, .application-right { width: 100%; padding: 10px 15px; border-right: none; border-bottom: 1px dashed #ccc; }
+    .application-right { border-bottom: none; margin-top: 0 !important; }
+    .application-left p, .application-right p { font-size: 0.95rem; line-height: 1.4rem; }
+    .app-value a { word-break: keep-all; }
+    #recruitment h3 { text-align: center; margin-top: 30px; }
 }
