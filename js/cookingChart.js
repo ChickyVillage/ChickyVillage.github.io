@@ -39,10 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
             date: dataPoint.date,
             price: dataPoint.prices[index]
         }));
+        const currentPrice = priceHistory[priceHistory.length - 1].price;
+        const previousPrice = priceHistory.length > 1 ? priceHistory[priceHistory.length - 2].price : currentPrice;
+        const priceDiff = currentPrice - previousPrice;
+
         return {
             ...dish,
             priceHistory,
-            price: priceHistory[priceHistory.length - 1].price
+            price: currentPrice,
+            priceDiff: priceDiff
         };
     });
 
@@ -59,6 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!containers[dish.grade]) return;
 
             const percentage = ((dish.price - dish.minPrice) / (dish.maxPrice - dish.minPrice)) * 100;
+
+            let priceDiffHtml = '';
+            if (dish.priceDiff > 0) {
+                priceDiffHtml = `<span class="price-up">▲ +${dish.priceDiff.toLocaleString('ko-KR')}</span>`;
+            } else if (dish.priceDiff < 0) {
+                priceDiffHtml = `<span class="price-down">▼ ${dish.priceDiff.toLocaleString('ko-KR')}</span>`;
+            }
+
             const dishElement = document.createElement('div');
             dishElement.className = 'dish-info-item';
             dishElement.innerHTML = `
@@ -66,10 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="image/cook/${dish.icon}" alt="${dish.name}">
                 <div class="dish-text">
                     <p class="dish-name">${dish.name}</p>
-                    <p class="dish-price">현재가: ${dish.price.toLocaleString('ko-KR')} G</p>
+                    <p class="dish-price">현재가: ${dish.price.toLocaleString('ko-KR')} G ${priceDiffHtml}</p>
                     <div class="price-range">
-                        <span>${dish.minPrice.toLocaleString('ko-KR')} G</span>
-                        <span>${dish.maxPrice.toLocaleString('ko-KR')} G</span>
+                        <span>하한가: ${dish.minPrice.toLocaleString('ko-KR')} G</span>
+                        <span>상한가: ${dish.maxPrice.toLocaleString('ko-KR')} G</span>
                     </div>
                     <div class="price-bar-container">
                         <div class="price-bar" style="width: ${Math.min(100, Math.max(0, percentage))}%;"></div>
@@ -109,7 +122,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 plugins: {
                     title: { display: true, text: '요리 가격 변동 그래프', font: { size: 18 } },
-                    legend: { position: 'bottom' },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            boxWidth: 20
+                        },
+                        onHover: (event, legendItem, legend) => {
+                            const canvas = legend.chart.canvas;
+                            canvas.style.cursor = `url('image/chicky/chickyCusorHover.png'), auto`;
+                        },
+                        onLeave: (event, legendItem, legend) => {
+                            const canvas = legend.chart.canvas;
+                            canvas.style.cursor = `url('image/chicky/chickyCusor.png'), auto`;
+                        }
+                    },
                     tooltip: {
                         callbacks: {
                             label: (context) => {
